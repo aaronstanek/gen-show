@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="gen-show.css">
+    <script type="text/javascript" src="gen-show.js"></script>
+</head>
+<body>
+<div class="genshowmale" style="width:500px">
+    <h1>The War of the Roses</h1>
+    <p>The Lancastrians are in red.</p>
+    <p>The Yorkists are in blue.</p>
+    <p>People who changed sides are in purple.</p>
+</div>
+<p id="loading">loading</p>
+<script>
+BIODATA = [
+    [
+        {
+            id:"0.ed",name:"Edward III",box:"m",
+            link: "https://en.wikipedia.org/wiki/Edward_III_of_England"
+        }
+    ],
+    [
+        {
+            id:"1.edm",name:"Edmund of Langley",box:"m",
+            link: "https://en.wikipedia.org/wiki/Edmund_of_Langley,_1st_Duke_of_York"
+        },
+        {
+            id:"1.edw",name:"Edward the Black Prince ",box:"m",
+            link: "https://en.wikipedia.org/wiki/Edward,_the_Black_Prince"
+        },
+        {
+            id:"1.lio",name:"Lionel of Antwerp",box:"m",
+            link: "https://en.wikipedia.org/wiki/Lionel_of_Antwerp,_1st_Duke_of_Clarence"
+        },
+        {
+            id:"1.john",name:"John of Gaunt",box:"m",
+            link: "https://en.wikipedia.org/wiki/John_of_Gaunt,_1st_Duke_of_Lancaster"
+        },
+    ],
+    [
+        {
+            id:"2.r",name:"Richard II",box:"m",
+            link: "https://en.wikipedia.org/wiki/Richard_II_of_England"
+        },
+        {
+            id:"2.p",name:"Philippa",box:"f",
+            link: "https://en.wikipedia.org/wiki/Philippa,_5th_Countess_of_Ulster"
+        }
+    ],
+    [
+        {
+            id:"3.r",name:"Roger Mortimer",box:"m",
+            link: "https://en.wikipedia.org/wiki/Roger_Mortimer,_4th_Earl_of_March"
+        },
+        {
+            id:"3.e",name:"Elizabeth Mortimer",box:"f",
+            link: "https://en.wikipedia.org/wiki/Elizabeth_Mortimer"
+        },
+        {
+            id:"3.joan",name:"Joan Beaufort",box:"f",
+            link: "https://en.wikipedia.org/wiki/Joan_Beaufort,_Countess_of_Westmorland"
+        },
+        {
+            id:"3.h",name:"Henry IV",box:"m",
+            nickname: "Bolingbroke",
+            link: "https://en.wikipedia.org/wiki/Henry_IV_of_England"
+        },
+        {
+            id:"3.john",name:"John Beaufort",box:"m",
+            link: "https://en.wikipedia.org/wiki/John_Beaufort,_1st_Earl_of_Somerset"
+        }
+    ],
+    [
+        {
+            id:"4.rc",name:"Richard of Conisburgh",box:"m",
+            link: "https://en.wikipedia.org/wiki/Richard_of_Conisburgh,_3rd_Earl_of_Cambridge"
+        },
+        {
+            id:"4.anne",name:"Anne Mortimer",box:"f",
+            link: "https://en.wikipedia.org/wiki/Anne_de_Mortimer"
+        },
+        {
+            id:"4.hp",name:"Henry Percy",box:"m",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Henry_Percy,_2nd_Earl_of_Northumberland"
+        },
+        {
+            id:"4.eleanor",name:"Eleanor Neville",box:"f",
+            link: "https://en.wikipedia.org/wiki/Eleanor_Percy,_Countess_of_Northumberland"
+        },
+        {
+            id:"4.rn",name:"Richard Neville",box:"m",
+            color: "blue",
+            link: "https://en.wikipedia.org/wiki/Richard_Neville,_5th_Earl_of_Salisbury"
+        },
+        {
+            id:"4.william",name:"William Neville",box:"m",
+            color: "blue",
+            link: "https://en.wikipedia.org/wiki/William_Neville,_1st_Earl_of_Kent"
+        },
+        {
+            id:"4.henry",name:"Henry V",box:"m",
+            link: "https://en.wikipedia.org/wiki/Henry_V_of_England"
+        },
+        {
+            id:"4.catherine",name:"Catherine of Valois",box:"f",
+            link: "https://en.wikipedia.org/wiki/Catherine_of_Valois"
+        },
+        {
+            id:"4.owen",name:"Owen Tudor",box:"m",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Owen_Tudor"
+        },
+        {
+            id:"4.john",name:"John Beaufort",box:"m",
+            link: "https://en.wikipedia.org/wiki/John_Beaufort,_1st_Duke_of_Somerset"
+        },
+        {
+            id:"4.edmund",name:"Edmund Beaufort",box:"m",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Edmund_Beaufort,_2nd_Duke_of_Somerset"
+        }
+    ],
+    [
+        {
+            id:"5.rp",name:"Richard Plantagenet",box:"m",
+            color: "blue",
+            link: "https://en.wikipedia.org/wiki/Richard_of_York,_3rd_Duke_of_York"
+        },
+        {
+            id:"5.cecily",name:"Cecily Neville",box:"f",
+            link: "https://en.wikipedia.org/wiki/Cecily_Neville,_Duchess_of_York"
+        },
+        {
+            id:"5.hp",name:"Henry Percy",box:"m",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Henry_Percy,_3rd_Earl_of_Northumberland"
+        },
+        {
+            id:"5.rn",name:"Richard Neville",box:"m",
+            color: "purple",
+            link: "https://en.wikipedia.org/wiki/Richard_Neville,_16th_Earl_of_Warwick"
+        },
+        {
+            id:"5.john",name:"John Neville",box:"m",
+            color: "purple",
+            link: "https://en.wikipedia.org/wiki/John_Neville,_1st_Marquess_of_Montagu"
+        },
+        {
+            id:"5.thomas",name:"Thomas Neville",box:"m",
+            color: "purple",
+            link: "https://en.wikipedia.org/wiki/Thomas_Neville_(died_1471)"
+        },
+        {
+            id:"5.margareta",name:"Margaret of Anjou",box:"f",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Margaret_of_Anjou"
+        },
+        {
+            id:"5.henry",name:"Henry VI",box:"m",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Henry_VI_of_England"
+        },
+        {
+            id:"5.edt",name:"Edmund Tudor",box:"m",
+            link: "https://en.wikipedia.org/wiki/Edmund_Tudor,_1st_Earl_of_Richmond"
+        },
+        {
+            id:"5.margaretb",name:"Margaret Beaufort",box:"f",
+            link: "https://en.wikipedia.org/wiki/Margaret_Beaufort,_Countess_of_Richmond_and_Derby"
+        },
+        {
+            id:"5.hb",name:"Henry Beaufort",box:"m",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Henry_Beaufort,_3rd_Duke_of_Somerset"
+        },
+        {
+            id:"5.edb",name:"Edmund Beaufort",box:"m",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Edmund_Beaufort,_4th_Duke_of_Somerset"
+        }
+    ],
+    [
+        {
+            id:"6.e",name:"Edward IV",box:"m",
+            color: "blue",
+            link: "https://en.wikipedia.org/wiki/Edward_IV_of_England"
+        },
+        {
+            id:"6.g",name:"George Plantagenet",box:"m",
+            color: "purple",
+            link: "https://en.wikipedia.org/wiki/George_Plantagenet,_1st_Duke_of_Clarence"
+        },
+        {
+            id:"6.i",name:"Isabel Neville",box:"f",
+            link: "https://en.wikipedia.org/wiki/Isabel_Neville,_Duchess_of_Clarence"
+        },
+        {
+            id:"6.r",name:"Richard III",box:"m",
+            color: "blue",
+            link: "https://en.wikipedia.org/wiki/Richard_III_of_England"
+        },
+        {
+            id:"6.a",name:"Anne Neville",box:"f",
+            link: "https://en.wikipedia.org/wiki/Anne_Neville"
+        },
+        {
+            id:"6.edw",name:"Edward of Westminster",box:"m",
+            color: "red",
+            link: "https://en.wikipedia.org/wiki/Edward_of_Westminster,_Prince_of_Wales"
+        }
+    ],
+    [
+        {
+            id:"7.ed",name:"Edward V",box:"m",
+            color: "blue",
+            link: "https://en.wikipedia.org/wiki/Edward_V_of_England"
+        },
+        {
+            id:"7.el",name:"Elizabeth of York",box:"f",
+            link: "https://en.wikipedia.org/wiki/Elizabeth_of_York"
+        },
+        {
+            id:"7.henry",name:"Henry VII",box:"m",
+            nickname: "Tudor",
+            link: "https://en.wikipedia.org/wiki/Henry_VII_of_England"
+        }
+    ],
+    [
+        {
+            id:"8",name:"Tudor dynasty",
+            link: "https://en.wikipedia.org/wiki/Tudor_dynasty"
+        }
+    ]
+]
+KIDSDATA = [
+    [
+        ["0.ed"],
+        ["1.edm","1.edw","1.lio","1.john"]
+    ],
+    [
+        ["1.edw"],
+        ["2.r"]
+    ],
+    [
+        ["1.lio"],
+        ["2.p"]
+    ],
+    [
+        ["2.p"],
+        ["3.r","3.e"]
+    ],
+    [
+        ["1.john"],
+        ["3.joan","3.h","3.john"]
+    ],
+    [
+        ["1.edm"],
+        ["4.rc"]
+    ],
+    [
+        ["3.r"],
+        ["4.anne"]
+    ],
+    [
+        ["3.e"],
+        ["4.hp"]
+    ],
+    [
+        ["3.joan"],
+        ["4.eleanor","4.rn","4.william","5.cecily"]
+    ],
+    [
+        ["3.h"],
+        ["4.henry"]
+    ],
+    [
+        ["3.john"],
+        ["4.john","4.edmund"]
+    ],
+    [
+        ["4.rc","4.anne"],
+        ["5.rp"],
+        "t"
+    ],
+    [
+        ["4.hp","4.eleanor"],
+        ["5.hp"],
+        "t"
+    ],
+    [
+        ["4.rn"],
+        ["5.rn","5.john"]
+    ],
+    [
+        ["4.william"],
+        ["5.thomas"]
+    ],
+    [
+        ["4.henry","4.catherine"],
+        ["5.henry"],
+        "t"
+    ],
+    [
+        ["4.catherine","4.owen"],
+        ["5.edt"],
+        "td"
+    ],
+    [
+        ["4.john"],
+        ["5.margaretb"]
+    ],
+    [
+        ["4.edmund"],
+        ["5.hb","5.edb"]
+    ],
+    [
+        ["5.rp","5.cecily"],
+        ["6.e","6.g","6.r"],
+        "t"
+    ],
+    [
+        ["5.rn"],
+        ["6.i","6.a"]
+    ],
+    [
+        ["5.margareta","5.henry"],
+        ["6.edw"],
+        "t"
+    ],
+    [
+        ["6.e"],
+        ["7.ed","7.el"]
+    ],
+    [
+        ["5.edt","5.margaretb"],
+        ["7.henry"],
+        "t"
+    ],
+    [
+        ["6.g","6.i"],
+        [],
+        "t"
+    ],
+    [
+        ["6.r","6.a"],
+        [],
+        "t"
+    ],
+    [
+        ["6.a","6.edw"],
+        [],
+        "t"
+    ],
+    [
+        ["7.el","7.henry"],
+        ["8"],
+        "t"
+    ]
+]
+</script>
+</body>
+</html>

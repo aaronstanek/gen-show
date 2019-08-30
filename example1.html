@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="gen-show.css">
+    <script type="text/javascript" src="gen-show.js"></script>
+</head>
+<body><p id="loading">loading</p>
+<script>
+BIODATA = [
+    [
+        {id:"tully",name:"House Tully"},
+        {id:"stark",name:"House Stark"}
+    ],
+    [
+        {id:"minisa",name:"Minisa Whent",box:"f"},
+        {id:"hoster",name:"Hoster Tully",box:"m"},
+        {id:"brynden",name:"Brynden Tully",box:"m"},
+        {id:"rickard",name:"Rickard Stark",box:"m"},
+        {id:"lyarra",name:"Lyarra Stark",box:"f"}
+    ],
+    [
+        {id:"edmure",name:"Edmure Tully",box:"m"},
+        {id:"lysa",name:"Lysa Tully",box:"f"},
+        {id:"jonarryn",name:"Jon Arryn",box:"m"},
+        {id:"catelyn",name:"Catelyn Tully",box:"f"},
+        {id:"eddard",name:"Eddard Stark",box:"m"},
+        {id:"brandon",name:"Brandon Stark",box:"m"},
+        {id:"lyana",name:"Lyana Stark",box:"f"},
+        {id:"benjen",name:"Benjen Stark",box:"m"},
+        {id:"unknown",name:"Unknown",box:"f"}
+    ],
+    [
+        {id:"robin",name:"Robin Arryn",box:"m"},
+        {id:"robb",name:"Robb Stark",box:"m"},
+        {id:"sansa",name:"Sansa Stark",box:"f"},
+        {id:"arya",name:"Arya Stark",box:"f"},
+        {id:"bran",name:"Bran Stark",box:"m"},
+        {id:"rickon",name:"Rickon Stark",box:"m"},
+        {id:"jon",name:"Jon Snow",box:"m"}
+    ]
+]
+KIDSDATA = [
+    [
+        ["tully"],
+        ["brynden","hoster"]
+    ],
+    [
+        ["stark"],
+        ["rickard"]
+    ],
+    [
+        ["rickard","lyarra"],
+        ["brandon","eddard","lyana","benjen"],
+        "t"
+    ],
+    [
+        ["eddard","unknown"],
+        ["jon"],
+        "d"
+    ],
+    [
+        ["catelyn","eddard"],
+        ["robb","sansa","arya","bran","rickon"],
+        "t"
+    ],
+    [
+        ["lysa","jonarryn"],
+        ["robin"],
+        "t"
+    ],
+    [
+        ["hoster","minisa"],
+        ["lysa","catelyn","edmure"],
+        "t"
+    ]
+]
+</script>
+</body>
+</html>
