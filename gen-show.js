@@ -578,6 +578,7 @@ function draw_lines(hold) {
     for (let i = 0; i < KIDSDATA.length; i++) {
         let is_dashed = string_cointains(KIDSDATA[i][2],"d");
         let has_t = string_cointains(KIDSDATA[i][2],"t");
+        let hold_block = string_cointains(KIDSDATA[i][2],"h");
         let vertical_offset = findTop(SPACELOOKUP[KIDSDATA[i][3][0]]) + 40 * (KIDSDATA[i][3][3] + 1);
         let len = KIDSDATA[i][3][2] - KIDSDATA[i][3][1] + 3;
         let bar;
@@ -616,6 +617,9 @@ function draw_lines(hold) {
                 }
             }
             draw_vertical_line(hold,middle,vertical_offset,bottom-vertical_offset,is_dashed);
+        }
+        if (hold_block) {
+            continue;
         }
         for (let j = 0; j < H_LINES_T.length; j++) {
             H_LINES.push(H_LINES_T[j]);
